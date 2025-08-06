@@ -57,51 +57,54 @@ body {
     color: var(--noir);
     background-color: var(--blanc);
     height: 100vh;
-
     overflow-x: hidden;
-    // font-size: 4rem;
-    // font-weight: 900;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 4rem;
     
-    // background-color: green;
-    
-
-
     div.row {
         width: 100%;
         max-width: var(--font-size-large);
-        // background-color: #c0392b;
+
+        &:not(:first-of-type) {
+            margin: 2rem 0;
+        }
     
+        &.sublogo {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 900;
+            user-select: none;
+            margin-top: 0;
+        }
+
         &.logo {
             position: relative;
             padding-top: 1rem;
-
             text-align: center;
-            font-size: 4rem;
+            font-size: 3.6rem;
             font-weight: 900;
-// background-color: green;
+            user-select: none;
+            text-transform: uppercase;
 
             &::after {
                 content: "";
-                // position: absolute;
                 display: inline-block;
-                width: 5rem;
-                height: 5rem;
+                width: 6rem;
+                height: 6rem;
                 margin-left: -0.75rem;
-                margin-bottom: -0.5rem;
+                margin-bottom: -1rem;
                 transform: rotate(-15deg);
-                // left: -1rem;
-                // bottom: 0;
-                // right: 0;
-                // background-color: red;
                 background-image: var(--citron);
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: contain;
+
+                animation-name: citron;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
             }
+
 
 
         }
@@ -110,9 +113,7 @@ body {
             padding: 2rem;
             background-color: var(--jaune-alpha);
 
-// border-radius: 91px;
-// background: #fafaf7;
-box-shadow:  0.5rem 0.5rem 2rem var(--beige);
+            box-shadow:  0.5rem 0.5rem 2rem var(--beige);
 
             p, h3 {
                 margin-top: 1rem;
@@ -128,4 +129,15 @@ box-shadow:  0.5rem 0.5rem 2rem var(--beige);
     
     
     }
+}
+
+@keyframes citron {
+    0%, 100% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(-30deg);
+    }
+
 }

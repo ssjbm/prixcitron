@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="./styles/styles.min.css">
     <title>Prix Citron</title>
@@ -59,11 +59,39 @@
 
     <div class="row form">
         <h2>📝Formulaire de dénonciation</h2>
-<br>
-        <input type="text" placeholder="Nom">
+        <br>
+<h3>Identifiez-vous</h3>
+
+
+        <div class="dline">
+            <input type="text" placeholder="Prénom">
+            <input type="text" placeholder="Nom de famille">
+        </div>
+        <br>
+        <div class="dline">
+            <input type="text" placeholder="Code postal">
+            <input type="text" placeholder="Courriel">
+        </div>
+
+        
+
+        <br>
+
+        <h3>Identification de l'entreprise fautive</h3>
+
+        <div class="dline">
+            <input type="text" placeholder="Nom">
+            <input type="text" placeholder="Ville">
+        </div>
+        
+        <br>
+        <div class="dline">
+            <textarea placeholder="Description de la faute"></textarea>
+            <div class="dndfile">Déposez une image ici ou<br>cliquez pour choisir un fichier</div>
+        </div>
 
         <br><br>
-        <input type="submit" value="Soumettre">
+        <div class="sline"><input type="submit" value="Soumettre"></div>
 
     </div>
 

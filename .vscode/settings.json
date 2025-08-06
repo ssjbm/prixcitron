@@ -15,7 +15,7 @@
         {
             "match": "[\\\\/]_[^\\\\/]+\\.scss$",
             "isAsync": false,
-            "cmd": "${workspaceRoot}/node_modules/.bin/sass \"${fileDirname}/../styles.scss\"  \"${fileDirname}/../styles.min.css\" --style=compressed --no-source-map --quiet",
+            "cmd": "${workspaceRoot}/node_modules/.bin/sass \"${fileDirname}/../styles.scss\"  \"${fileDirname}/../styles.min.css\" --style=compressed --no-source-map",
             "event": "onFileChange"
         }
 

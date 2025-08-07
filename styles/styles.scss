@@ -4,17 +4,18 @@
 @use 'partials/neumorphic';
 
 
-$font-base: 24;
-$font-break: 768;
-$font-large: 1024;
-$font-resp: calc($font-base * 100 / $font-break);
+$font-base:   24;
+$font-break:  768;
+$font-large:  1024;
+$font-resp:   calc($font-base * 100 / $font-break);
+$font-family: "Roboto Slab", serif;
 
 $blanc: #fafaf7;  // | fond neutre           | arrière-plan, sections secondaires
-$noir: #1c1c1c;   // | texte, contrastes     | texte principal, arrière-plan foncé
+$noir:  #1c1c1c;  // | texte, contrastes     | texte principal, arrière-plan foncé
 $jaune: #f7d51d;  // | accent principal      | boutons, titres, éléments clés
-$vert: #7a9b68;   // | ton sérieux/sobriété  | en-têtes, fonds alternatifs
+$vert:  #7a9b68;  // | ton sérieux/sobriété  | en-têtes, fonds alternatifs
 $rouge: #c0392b;  // | indignation           | alertes, points de dénonciation
-$bleu: #2e86c1;   // | référence au québec   | lien subtil à l’identité québécoise
+$bleu:  #2e86c1;  // | référence au québec   | lien subtil à l’identité québécoise
 $beige: #d6c6a9;  // | connotation militante | fond texture « dépliant engagé »
 
 $jaune-mix: color.mix($blanc, $jaune, 70%);
@@ -23,6 +24,7 @@ $noir-alpha: color.adjust($noir, $alpha: -0.7);
 
 $jaune-hex: string.unquote('#{string.slice(ie-hex-str($jaune), 4)}');
 $noir-hex: string.unquote('#{string.slice(ie-hex-str($noir), 4)}');
+
 
 :root {
     --blanc: #{$blanc};
@@ -37,7 +39,7 @@ $noir-hex: string.unquote('#{string.slice(ie-hex-str($noir), 4)}');
     --jaune-dark: #{$jaune-dark};
     --noir-alpha: #{$noir-alpha};
 
-    --font: "Roboto Slab", serif;
+    --font-family: #{$font-family};
     --font-size-base: #{$font-base}px;
     --font-size-break: #{$font-break}px;
     --font-size-large: #{$font-large}px;
@@ -51,7 +53,7 @@ $noir-hex: string.unquote('#{string.slice(ie-hex-str($noir), 4)}');
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font);
+    font-family: var(--font-family);
 }
 
 
@@ -121,7 +123,7 @@ body {
             p, h3 {
                 margin-top: 1rem;
             }
-            
+
             ul {
                 margin-left: 2rem;
             }
@@ -157,7 +159,6 @@ body {
                 text-align: center;
             }
 
-
             textarea,
             input[type="text"] {
                 font-size: 1rem;
@@ -184,14 +185,12 @@ body {
                 &:active {
                     @include neumorphic.button-press;
                 }
-
             }
 
             textarea {
                 height: 10rem;
+                resize: vertical;
             }
-
-
 
             .dndfile {
                 width: 48%;
@@ -206,16 +205,11 @@ body {
                 cursor: pointer;
                 @include neumorphic.button;
 
+                &.dragover,
                 &:active {
                     color: var(--noir);
                     @include neumorphic.button-press;
                 }
-
-                // &:hover,
-                &.dragover {
-                    color: var(--noir);
-                }
-
             }
 
 

@@ -1,0 +1,25 @@
+@mixin input {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0.75rem;
+    background: var(--jaune-mix);
+    box-shadow: inset 0.25rem 0.25rem 0.5rem var(--beige),
+                inset -0.25rem -0.25rem 0.5rem var(--blanc);
+}
+
+@mixin button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0.75rem;
+    background: var(--jaune-mix);
+    box-shadow: 0.25rem 0.25rem 0.5rem var(--beige),
+                -0.25rem -0.25rem 0.5rem var(--blanc);
+}
+
+@mixin button-press {
+    background: linear-gradient(145deg, var(--jaune-dark), var(--jaune-mix));
+    box-shadow:  0.25rem 0.25rem 0.5rem var(--beige),
+                -0.25rem -0.25rem 0.5rem var(--blanc);
+}

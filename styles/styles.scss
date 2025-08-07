@@ -1,6 +1,7 @@
 @use 'sass:color';
 @use 'sass:string';
 @use 'partials/fonts';
+@use 'partials/neumorphic';
 
 
 
@@ -9,7 +10,7 @@ $font-break: 768;
 $font-large: 1024;
 $font-resp: calc($font-base * 100 / $font-break);
 
-$blanc: #fafaf7;  // | fond neutre           | arrière-plan, sections secondaires 
+$blanc: #fafaf7;  // | fond neutre           | arrière-plan, sections secondaires
 $noir: #1c1c1c;   // | texte, contrastes     | texte principal, arrière-plan foncé
 $jaune: #f7d51d;  // | accent principal      | boutons, titres, éléments clés
 $vert: #7a9b68;   // | ton sérieux/sobriété  | en-têtes, fonds alternatifs
@@ -22,42 +23,13 @@ $jaune-hex: string.unquote('#{string.slice(ie-hex-str($jaune), 4)}');
 $noir-hex: string.unquote('#{string.slice(ie-hex-str($noir), 4)}');
 
 
-
-
-@mixin neumorphic-input {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: 0.75rem;
-    background: var(--jaune-mix);
-    box-shadow: inset 0.25rem 0.25rem 0.5rem var(--beige),
-                inset -0.25rem -0.25rem 0.5rem var(--blanc);
-}
-
-@mixin neumorphic-button {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: 0.75rem;
-    background: var(--jaune-mix);
-    box-shadow: 0.25rem 0.25rem 0.5rem var(--beige),
-                -0.25rem -0.25rem 0.5rem var(--blanc);
-}
-
-@mixin neumorphic-button-press {
-    background: linear-gradient(145deg, var(--jaune-dark), var(--jaune-mix));
-    box-shadow:  0.25rem 0.25rem 0.5rem var(--beige),
-                -0.25rem -0.25rem 0.5rem var(--blanc);
-}
-
-
 :root {
     --blanc: #{$blanc};
-    --noir: #{$noir};  
+    --noir: #{$noir};
     --jaune: #{$jaune};
-    --vert: #{$vert};  
+    --vert: #{$vert};
     --rouge: #{$rouge};
-    --bleu: #{$bleu};  
+    --bleu: #{$bleu};
     --beige: #{$beige};
 
     --jaune-mix: #{$jaune-mix};
@@ -96,7 +68,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     div.row {
         width: 100%;
         max-width: var(--font-size-large);
@@ -104,7 +76,7 @@ body {
         &:not(:first-of-type) {
             margin: 2rem 0;
         }
-    
+
         &.sublogo {
             text-align: center;
             font-size: 1rem;
@@ -134,14 +106,10 @@ body {
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: contain;
-
                 animation-name: citron;
                 animation-duration: 2s;
                 animation-iteration-count: infinite;
             }
-
-
-
         }
 
         &.text {
@@ -152,15 +120,16 @@ body {
             p, h3 {
                 margin-top: 1rem;
             }
-
+            
             ul {
                 margin-left: 2rem;
             }
+
             li {
                 margin-top: 0.5rem;
             }
         }
-    
+
         &.form {
             padding: 2rem;
             background-color: var(--jaune-mix);
@@ -185,25 +154,17 @@ body {
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                // input, textarea {
-                //     width: 48%;
-                // }
             }
 
 
             textarea,
             input[type="text"] {
-                
                 font-size: 1rem;
                 padding: 0.5rem;
-                
-                @include neumorphic-input;
-
-
                 width: 100%;
+                @include neumorphic.input;
 
                 &::placeholder {
-                    // opacity: 0.7;
                     color: var(--noir-alpha);
                 }
 
@@ -218,21 +179,20 @@ body {
                 font-weight: bold;
                 padding: 0.5rem;
                 cursor: pointer;
-                @include neumorphic-button;
+                @include neumorphic.button;
                 &:active {
-                    @include neumorphic-button-press;
+                    @include neumorphic.button-press;
                 }
 
             }
-            
+
             textarea {
                 height: 10rem;
             }
-        
-        
-        
+
+
+
             .dndfile {
-                // background-color: red;
                 width: 48%;
                 height: 10rem;
                 display: flex;
@@ -243,24 +203,22 @@ body {
                 color: var(--noir-alpha);
                 user-select: none;
                 cursor: pointer;
-
-                @include neumorphic-button;
+                @include neumorphic.button;
 
                 &:active {
-                    @include neumorphic-button-press;
+                    @include neumorphic.button-press;
                 }
 
                 &:hover,
                 &.dragover {
-
                     color: var(--noir);
                 }
 
             }
-        
-        
+
+
         }
-    
+
     }
 }
 
@@ -272,5 +230,4 @@ body {
     50% {
         transform: rotate(-30deg);
     }
-
 }

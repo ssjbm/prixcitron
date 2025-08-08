@@ -104,7 +104,6 @@ body {
                 width: 6rem;
                 height: 6rem;
                 margin-bottom: -1rem;
-                transform: rotate(-15deg);
                 background-image: var(--citron);
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -132,6 +131,10 @@ body {
             li {
                 margin-top: 0.5rem;
             }
+
+            img {
+                width: 100%;
+            }
         }
 
         &.form {
@@ -146,7 +149,6 @@ body {
             div.dline {
                 display: flex;
                 justify-content: space-between;
-                // align-items: center;
 
                 input, textarea {
                     width: 48%;
